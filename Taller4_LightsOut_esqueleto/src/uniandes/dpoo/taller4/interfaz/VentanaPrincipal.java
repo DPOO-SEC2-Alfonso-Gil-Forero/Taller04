@@ -40,6 +40,10 @@ public class VentanaPrincipal extends JFrame
 
         setLayout( new BorderLayout( ) );
         
+        //Tamaño generico, el usuario debería ingresar el valor
+        tamanio = 5;
+        
+        
         tablero = new Tablero(tamanio);
         panelCentro = new PanelTablero(tamanio, tablero);
         add(panelCentro, BorderLayout.CENTER);
