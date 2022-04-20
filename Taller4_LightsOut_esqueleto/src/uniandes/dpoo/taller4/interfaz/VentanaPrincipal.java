@@ -19,7 +19,7 @@ import com.formdev.flatlaf.FlatLightLaf;
 import uniandes.dpoo.taller4.modelo.Tablero;
 import uniandes.dpoo.taller4.modelo.Top10;
 
-public class VentanaPrincipal extends JFrame implements ActionListener
+public class VentanaPrincipal extends JFrame
 {
 
     
@@ -102,9 +102,5 @@ public class VentanaPrincipal extends JFrame implements ActionListener
         ventana.setVisible( true );
         FlatLightLaf.install();
     }
-	@Override
-	public void actionPerformed(ActionEvent e) {
-		
-	}
     
 }
