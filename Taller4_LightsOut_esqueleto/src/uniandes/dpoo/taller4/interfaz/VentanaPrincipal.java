@@ -19,7 +19,7 @@ import com.formdev.flatlaf.FlatLightLaf;
 import uniandes.dpoo.taller4.modelo.Tablero;
 import uniandes.dpoo.taller4.modelo.Top10;
 
-public class VentanaPrincipal extends JFrame implements ActionListener
+public class VentanaPrincipal extends JFrame 
 {
 
     
@@ -71,8 +71,9 @@ public class VentanaPrincipal extends JFrame implements ActionListener
         //add(panelAbajo, BorderLayout.NORTH);
         
         
-        //panelAbajo = new PanelInfo( );
-        //add(panelAbajo, BorderLayout.SOUTH);
+        panelAbajo = new PanelInfo(this);
+        add(panelAbajo, BorderLayout.SOUTH);
+        
         // Esto se usa para que al cerrar la ventana se salven los resultados
         addWindowListener(new WindowAdapter()
         {
@@ -101,10 +102,7 @@ public class VentanaPrincipal extends JFrame implements ActionListener
         ventana.setVisible( true );
         FlatLightLaf.install();
     }
-	@Override
-	public void actionPerformed(ActionEvent e) {
-		
-	}
+	
     
 	public Tablero darTablero()
 	{

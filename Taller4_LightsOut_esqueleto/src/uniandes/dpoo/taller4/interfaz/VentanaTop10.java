@@ -1,6 +1,7 @@
 package uniandes.dpoo.taller4.interfaz;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -11,13 +12,17 @@ import java.util.List;
 import javax.swing.DefaultListModel;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JPanel;
+
+import javax.swing.JScrollPane;
+
 
 import uniandes.dpoo.taller4.modelo.RegistroTop10;
 import uniandes.dpoo.taller4.modelo.Top10;
 
-public class VentanaTop10 extends JDialog implements ActionListener{
+public class VentanaTop10 extends JDialog {
 	private int tamanio;
 	private JList<String> lista;
 	private Top10 top;
@@ -26,11 +31,14 @@ public class VentanaTop10 extends JDialog implements ActionListener{
 		super(jframe, modal);
 		top=new Top10();
 		setTitle ("Top 10");
-		setBounds(400,300,400,300);
+		setLocationRelativeTo( null );
+		setBounds(200,150,200,150);
 		lista=new JList<String>();
-		this.getContentPane().setLayout(new FlowLayout());
+
+		setLayout( new BorderLayout( ) );
+		
 		top.cargarRecords(file);		
-		DefaultListModel modelo = new DefaultListModel();
+		DefaultListModel<String> modelo = new DefaultListModel<String>();
 		int i=0;
 		for (RegistroTop10 e:top.darRegistros()) {
 			i++;
@@ -38,15 +46,24 @@ public class VentanaTop10 extends JDialog implements ActionListener{
 		    modelo.addElement(String.valueOf(i)+".    "+e);
 		}
 		lista.setModel(modelo);
-		add (lista);
+		lista.setBackground(new Color(250,250,250));
+		lista.setVisibleRowCount(4);
+		JScrollPane desplazar=new JScrollPane(lista);
+		r=new JPanel();
+		t=new JPanel();
+		r.add(desplazar);
+	    rotulo=new JLabel("#  Nombre");
+	    t.setBackground(new Color(58,233,233));
+	    add(r, BorderLayout.CENTER);
+	    t.add(rotulo);
+		add(t, BorderLayout.NORTH);
+
+		add(desplazar);
 	}
-	
-	@Override
-	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
-	
+
+	private JLabel rotulo;
+	private JPanel r;
+	private JPanel t;
 	
 	
 	
