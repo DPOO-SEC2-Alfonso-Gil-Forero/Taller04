@@ -59,7 +59,7 @@ public class VentanaPrincipal extends JFrame
         
         
         tablero = new Tablero(tamanio);
-        panelCentro = new PanelTablero(tamanio, tablero,top);
+        panelCentro = new PanelTablero(this,tamanio, tablero,top);
         add(panelCentro, BorderLayout.CENTER);
         
         panelDerecha = new PanelMenu( this );
@@ -71,7 +71,7 @@ public class VentanaPrincipal extends JFrame
         //add(panelAbajo, BorderLayout.NORTH);
         
         
-        panelAbajo = new PanelInfo(this);
+        panelAbajo = new PanelInfo(this,tablero.darJugadas());
         add(panelAbajo, BorderLayout.SOUTH);
         
         // Esto se usa para que al cerrar la ventana se salven los resultados
@@ -112,6 +112,11 @@ public class VentanaPrincipal extends JFrame
 	public int darDificultad()
 	{
 		return dificultad;
+	}
+	
+	public void actualizarInfo()
+	{
+		panelAbajo.actualizarJugadas(tablero.darJugadas());
 	}
 	
 }

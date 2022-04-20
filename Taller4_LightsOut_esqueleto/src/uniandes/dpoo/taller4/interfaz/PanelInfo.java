@@ -12,17 +12,20 @@ public class PanelInfo extends JPanel
     private JLabel jugadasTxt;
     private JLabel jugadas;
 	
-	public PanelInfo(VentanaPrincipal principal)
+	public PanelInfo(VentanaPrincipal principal, int Pjugadas)
 	{
 		setLayout( new GridLayout( 1, 2 ) );
 		jugadasTxt = new JLabel("Jugadas");
-		jugadas = new JLabel(String.valueOf(principal.darTablero().darJugadas()));
+		jugadas = new JLabel(String.valueOf(Pjugadas));
 		add(jugadasTxt);
 		add(jugadas);
 	}
 	
 	
-	
+	public void actualizarJugadas(int Pjugadas) {
+	    jugadas.setText(String.valueOf(Pjugadas));
+	    jugadas.repaint();
+	}
 	
 	
 }

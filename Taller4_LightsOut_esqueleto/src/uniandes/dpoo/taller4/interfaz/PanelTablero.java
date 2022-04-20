@@ -8,6 +8,7 @@ import java.awt.event.MouseListener;
 
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.SwingUtilities;
 
 import uniandes.dpoo.taller4.modelo.Tablero;
 import uniandes.dpoo.taller4.modelo.Top10;
@@ -18,15 +19,17 @@ public class PanelTablero  extends JPanel implements MouseListener
 	
 	private Tablero principal; 
 	private Top10 top10;
+	private VentanaPrincipal frame;
 	private boolean[][] tablero;
 	private int[][] cantidades;
 	private int ultima_fila;
 	private int ultima_columna;
 
 	
-	public PanelTablero(int tamanio, Tablero Pprincipal, Top10 top)
+	public PanelTablero(VentanaPrincipal frame,int tamanio, Tablero Pprincipal, Top10 top)
 	{
 		principal = Pprincipal;
+		this.frame = frame;
 		top10=top;
 		tablero = principal.darTablero();
 		cantidades = new int[tamanio][tamanio];
@@ -83,6 +86,8 @@ public class PanelTablero  extends JPanel implements MouseListener
 			top10.agregarRegistro(name, puntaje);
 		}
 	}
+	SwingUtilities.updateComponentTreeUI(frame);
+	frame.actualizarInfo();
 	}
 	
 	
