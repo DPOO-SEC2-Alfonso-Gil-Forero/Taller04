@@ -6,24 +6,28 @@ import java.awt.Graphics2D;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 import uniandes.dpoo.taller4.modelo.Tablero;
+import uniandes.dpoo.taller4.modelo.Top10;
 
 public class PanelTablero  extends JPanel implements MouseListener
 {
 
 	
 	private Tablero principal; 
+	private Top10 top10;
 	private boolean[][] tablero;
 	private int[][] cantidades;
 	private int ultima_fila;
 	private int ultima_columna;
 
 	
-	public PanelTablero(int tamanio, Tablero Pprincipal)
+	public PanelTablero(int tamanio, Tablero Pprincipal, Top10 top)
 	{
 		principal = Pprincipal;
+		top10=top;
 		tablero = principal.darTablero();
 		cantidades = new int[tamanio][tamanio];
 		setSize(350, 350);
@@ -37,7 +41,7 @@ public class PanelTablero  extends JPanel implements MouseListener
 	
 	
 	
-	@Override
+
 	public void paint(Graphics g)
 	{
 	Graphics2D g2d = (Graphics2D) g;
@@ -71,6 +75,14 @@ public class PanelTablero  extends JPanel implements MouseListener
 	this.ultima_fila = casilla[0];
 	this.ultima_columna = casilla[1];
 	repaint();
+	if(principal.tableroIluminado()) 
+	{
+		String name = JOptionPane.showInputDialog("Ingrese sus iniciales (ej: MAR) por favor");
+		int puntaje=principal.calcularPuntaje();
+		if (top10.esTop10(puntaje)) {
+			top10.agregarRegistro(name, puntaje);
+		}
+	}
 	}
 	
 	
@@ -89,14 +101,14 @@ public class PanelTablero  extends JPanel implements MouseListener
 
 
 
-	@Override
+	
 	public void mouseClicked(MouseEvent e) {
 		// TODO Auto-generated method stub
 		
 	}
 
 
-	@Override
+
 	public void mouseReleased(MouseEvent e) {
 		// TODO Auto-generated method stub
 		
@@ -106,6 +118,7 @@ public class PanelTablero  extends JPanel implements MouseListener
 	@Override
 	public void mouseEntered(MouseEvent e) {
 		// TODO Auto-generated method stub
+		
 		
 	}
 
