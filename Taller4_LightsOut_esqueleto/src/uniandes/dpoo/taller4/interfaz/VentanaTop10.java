@@ -21,7 +21,7 @@ public class VentanaTop10 extends JDialog implements ActionListener{
 	private int tamanio;
 	private JList<String> lista;
 	private Top10 top;
-	File file=new File("C:\\Users\\Thinkpad\\git\\Taller04\\Taller4_LightsOut_esqueleto\\data\\top10.csv");
+	File file=new File("data/top10.csv");
 	public VentanaTop10(JFrame jframe, boolean modal) {
 		super(jframe, modal);
 		top=new Top10();

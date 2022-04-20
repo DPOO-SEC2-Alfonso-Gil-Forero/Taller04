@@ -24,8 +24,8 @@ public class VentanaPrincipal extends JFrame implements ActionListener
 
     
 	private int tamanio;
-	private String dificultad;
-	private File archivo=new File("C:\\Users\\Thinkpad\\git\\Taller04\\Taller4_LightsOut_esqueleto\\data\\top10.csv");
+	private int dificultad;
+	private File archivo=new File("data/top10.csv");
 	
     private PanelTablero panelCentro;
     private PanelConfiguracion panelArriba;
@@ -55,6 +55,7 @@ public class VentanaPrincipal extends JFrame implements ActionListener
         
         //Tamaño generico, el usuario debería ingresar el valor
         tamanio = 5;
+        dificultad = 5;
         
         
         tablero = new Tablero(tamanio);
@@ -69,8 +70,6 @@ public class VentanaPrincipal extends JFrame implements ActionListener
         //panelArriba = new PanelConfiguracion( );
         //add(panelAbajo, BorderLayout.NORTH);
         
-        //panelDerecha = new PanelMenu( );
-        //add(panelAbajo, BorderLayout.EAST);
         
         //panelAbajo = new PanelInfo( );
         //add(panelAbajo, BorderLayout.SOUTH);
@@ -92,7 +91,7 @@ public class VentanaPrincipal extends JFrame implements ActionListener
         });
         
         
-    }File file=new File("C:\\Users\\Thinkpad\\git\\Taller04\\Taller4_LightsOut_esqueleto\\data\\top10.csv");
+    }File file=new File("data/top10.csv");
     
     
     
@@ -107,4 +106,14 @@ public class VentanaPrincipal extends JFrame implements ActionListener
 		
 	}
     
+	public Tablero darTablero()
+	{
+		return tablero;
+	}
+	
+	public int darDificultad()
+	{
+		return dificultad;
+	}
+	
 }

@@ -81,6 +81,7 @@ public class PanelTablero  extends JPanel implements MouseListener
 		int puntaje=principal.calcularPuntaje();
 		if (top10.esTop10(puntaje)) {
 			top10.agregarRegistro(name, puntaje);
+			
 		}
 	}
 	}
