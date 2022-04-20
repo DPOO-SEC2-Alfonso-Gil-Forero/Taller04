@@ -19,9 +19,8 @@ import com.formdev.flatlaf.FlatLightLaf;
 import uniandes.dpoo.taller4.modelo.Tablero;
 import uniandes.dpoo.taller4.modelo.Top10;
 
-public class VentanaPrincipal extends JFrame 
+public class VentanaPrincipal extends JFrame
 {
-
     
 	private int tamanio;
 	private int dificultad;
@@ -102,7 +101,6 @@ public class VentanaPrincipal extends JFrame
         ventana.setVisible( true );
         FlatLightLaf.install();
     }
-	
     
 	public Tablero darTablero()
 	{

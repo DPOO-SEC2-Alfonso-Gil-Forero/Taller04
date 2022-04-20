@@ -15,6 +15,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 
 import javax.swing.JScrollPane;
 
@@ -29,12 +30,12 @@ public class VentanaTop10 extends JDialog {
 	File file=new File("data/top10.csv");
 	public VentanaTop10(JFrame jframe, boolean modal) {
 		super(jframe, modal);
+		
 		top=new Top10();
 		setTitle ("Top 10");
 		setLocationRelativeTo( null );
 		setBounds(200,150,200,150);
 		lista=new JList<String>();
-
 		setLayout( new BorderLayout( ) );
 		
 		top.cargarRecords(file);		
@@ -64,6 +65,7 @@ public class VentanaTop10 extends JDialog {
 	private JLabel rotulo;
 	private JPanel r;
 	private JPanel t;
+	
 	
 	
 	
